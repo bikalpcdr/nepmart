@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../../core/auth/auth.service';
 import { SessionService } from '../../../core/auth/session.service';
@@ -10,6 +10,7 @@ interface NavLink {
   path: string;
 }
 
+/** Public + shared top-navigation links (shown when not signed in, plus shared links). */
 const NAV_LINKS: NavLink[] = [
   { label: 'Home', path: '/' },
   { label: 'Shop', path: '/shop' },
@@ -35,7 +36,26 @@ export class NavbarComponent {
   private readonly router = inject(Router);
   private readonly toast = inject(ToastService);
 
-  protected readonly navLinks = NAV_LINKS;
+  /** Shared public links that always appear. */
+  protected readonly navLinks = computed(() => {
+    const links = [...NAV_LINKS];
+    const user = this.session.user();
+    if (user) {
+      // Signed in: add account-scoped links based on role/vendor membership.
+      if (this.session.isAdmin) {
+        links.push({ label: 'Admin', path: '/admin' });
+      } else if (this.session.vendors().length > 0 || user.userType === 'VENDOR') {
+        links.push({ label: 'Vendor', path: '/vendor-dashboard' });
+      }
+      links.push({ label: 'My Account', path: '/me' });
+    } else {
+      // Not signed in: show the public auth entry-points.
+      links.push({ label: 'Login', path: '/login' });
+      links.push({ label: 'Register', path: '/signup' });
+    }
+    return links;
+  });
+
   protected readonly locations = LOCATIONS;
   protected readonly location = signal('Kathmandu');
   protected readonly locationOpen = signal(false);
@@ -62,6 +82,6 @@ export class NavbarComponent {
   protected logout(): void {
     this.auth.logout();
     this.toast.info('You have been signed out.');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
   }
 }
