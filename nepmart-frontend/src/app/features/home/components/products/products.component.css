@@ -1,0 +1,118 @@
+:host {
+  display: block;
+}
+.nm-featured {
+  margin: 0;
+}
+.nm-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 14px;
+}
+.nm-sec h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--nm-text);
+}
+.nm-sec a {
+  color: var(--nm-red);
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.nm-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+.nm-card {
+  background: #fff;
+  border: 1px solid var(--nm-border);
+  border-radius: 8px;
+  padding: 8px 8px 14px;
+  box-shadow: 0 1px 2px rgba(11, 27, 58, 0.04);
+}
+.nm-img {
+  height: 112px;
+  border-radius: 5px;
+  background: #f4f5f7;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.nm-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.nm-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--nm-red);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.nm-heart {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+.nm-heart.saved {
+  background: #fde7e7;
+}
+.nm-card h4 {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 0 3px;
+  margin: 0;
+  min-height: 28px;
+  line-height: 1.35;
+}
+.nm-price {
+  padding: 8px 3px 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--nm-navy);
+}
+.nm-price.sale {
+  color: var(--nm-red);
+}
+.nm-price s {
+  color: var(--nm-muted);
+  font-weight: 400;
+  font-size: 10px;
+  margin-left: 5px;
+}
+@media (max-width: 1100px) {
+  .nm-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .nm-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .nm-sec h2 {
+    font-size: 17px;
+  }
+}

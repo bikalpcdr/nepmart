@@ -1,0 +1,208 @@
+<header class="nm-top">
+  <div class="nm-wrap nm-row1">
+    <a class="nm-logo" routerLink="/" aria-label="NepMart home">
+      <span class="nm-logo-mark" aria-hidden="true">
+        <svg width="52" height="34" viewBox="0 0 70 40" fill="none">
+          <path d="M2 36 21 9l8 12 6-8 11 23z" fill="#0B1B3A" />
+          <path
+            d="M27 36 45 5l11 21 12 10"
+            stroke="#E51E26"
+            stroke-width="3.4"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            fill="none"
+          />
+        </svg>
+      </span>
+      <span class="nm-brand">
+        <strong>Nep<span>Mart</span></strong>
+        <small>Local Products. Global Dreams.</small>
+      </span>
+    </a>
+
+    <form class="nm-search" role="search" (submit)="submitSearch(); $event.preventDefault()">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="#64748B"
+        stroke-width="1.8"
+        aria-hidden="true"
+      >
+        <circle cx="7" cy="7" r="5.2" />
+        <path d="m11.2 11.2 3 3" />
+      </svg>
+      <input
+        type="search"
+        placeholder="Search for products, brands and more..."
+        aria-label="Search for products, brands and more"
+        [value]="searchQuery()"
+        (input)="onSearchInput($any($event.target).value)"
+      />
+    </form>
+
+    <div class="nm-loc" [class.open]="locationOpen()">
+      <button
+        type="button"
+        class="nm-loc-btn"
+        (click)="toggleLocation()"
+        aria-haspopup="listbox"
+        [attr.aria-expanded]="locationOpen()"
+      >
+        <svg
+          width="14"
+          height="16"
+          viewBox="0 0 14 16"
+          fill="none"
+          stroke="#1b2233"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <path d="M7 15s5-4.6 5-8.4a5 5 0 0 0-10 0C2 10.4 7 15 7 15Z" />
+          <circle cx="7" cy="6.5" r="1.7" />
+        </svg>
+        <span>{{ location() }}</span>
+        <svg
+          width="10"
+          height="6"
+          viewBox="0 0 10 6"
+          fill="none"
+          stroke="#1b2233"
+          stroke-width="1.6"
+          aria-hidden="true"
+        >
+          <path d="m1 1 4 4 4-4" />
+        </svg>
+      </button>
+      @if (locationOpen()) {
+        <ul class="nm-loc-menu" role="listbox">
+          @for (loc of locations; track loc) {
+            <li role="option" [attr.aria-selected]="loc === location()">
+              <button type="button" (click)="pickLocation(loc)">{{ loc }}</button>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+
+    <div class="nm-actions">
+      @if (session.user(); as user) {
+        <span class="nm-user" [title]="user.email">{{ user.email }}</span>
+        <button type="button" class="nm-link" (click)="logout()">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <circle cx="10" cy="6.5" r="3.2" />
+            <path d="M3.5 17c.8-3.2 3.4-4.8 6.5-4.8s5.7 1.6 6.5 4.8" />
+          </svg>
+          <span>Sign Out</span>
+        </button>
+      } @else {
+        <a class="nm-link" routerLink="/login">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <circle cx="10" cy="6.5" r="3.2" />
+            <path d="M3.5 17c.8-3.2 3.4-4.8 6.5-4.8s5.7 1.6 6.5 4.8" />
+          </svg>
+          <span>Login / Register</span>
+        </a>
+      }
+      <a class="nm-link" routerLink="/wishlist" aria-label="Wishlist">
+        <svg
+          width="19"
+          height="19"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+        >
+          <path
+            d="M10 16.5 3.6 10a4.1 4.1 0 0 1 0-5.8 4 4 0 0 1 5.7 0l.7.7.7-.7a4 4 0 0 1 5.7 0 4.1 4.1 0 0 1 0 5.8Z"
+          />
+        </svg>
+        <span>Wishlist</span>
+      </a>
+      <a class="nm-link nm-cart" routerLink="/cart" aria-label="Cart">
+        <span class="nm-cart-icon">
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M2 3h2.5l2.2 10.5h9.1L18 6H6" />
+            <circle cx="8.2" cy="17" r="1.3" />
+            <circle cx="14.5" cy="17" r="1.3" />
+          </svg>
+          <i class="nm-badge">{{ cart.count() }}</i>
+        </span>
+        <span>Cart</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile search row -->
+  <div class="nm-wrap nm-mobile-search">
+    <form role="search" (submit)="submitSearch(); $event.preventDefault()">
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="#64748B"
+        stroke-width="1.8"
+      >
+        <circle cx="7" cy="7" r="5.2" />
+        <path d="m11.2 11.2 3 3" />
+      </svg>
+      <input
+        type="search"
+        placeholder="Search for products, brands and more..."
+        aria-label="Search products"
+        [value]="searchQuery()"
+        (input)="onSearchInput($any($event.target).value)"
+      />
+    </form>
+  </div>
+</header>
+
+<nav class="nm-nav" aria-label="Primary">
+  <div class="nm-wrap nm-row2">
+    <a class="nm-cat-btn" routerLink="/categories">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <path d="M2 4h12M2 8h12M2 12h12" />
+      </svg>
+      All Categories
+    </a>
+    @for (link of navLinks; track link.label) {
+      <a
+        class="nm-nav-link"
+        [routerLink]="link.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        >{{ link.label }}</a
+      >
+    }
+  </div>
+</nav>

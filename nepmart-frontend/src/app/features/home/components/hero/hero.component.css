@@ -1,0 +1,151 @@
+:host {
+  display: block;
+}
+.nm-hero {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #8fc3ea 0%, #cfe3f2 45%, #f6d9b4 80%, #f0b878 100%);
+}
+.nm-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.nm-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+.nm-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+.nm-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(248, 250, 252, 0.96) 0%,
+    rgba(248, 250, 252, 0.88) 26%,
+    rgba(248, 250, 252, 0.55) 44%,
+    rgba(248, 250, 252, 0.12) 62%,
+    transparent 75%
+  );
+}
+.nm-inner {
+  position: relative;
+  max-width: 1390px;
+  margin: 0 auto;
+  padding: 44px 24px 0;
+}
+.nm-kick {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  color: #1b2233;
+  margin: 0;
+}
+.nm-brand {
+  font-size: 68px;
+  font-weight: 800;
+  color: #0b1b3a;
+  line-height: 1;
+  margin: 14px 0 0;
+  letter-spacing: -1px;
+}
+.nm-brand span {
+  color: #e51e26;
+}
+.nm-title {
+  font-size: 31px;
+  font-weight: 700;
+  color: #0b1b3a;
+  margin: 8px 0 0;
+  letter-spacing: -0.3px;
+}
+.nm-desc {
+  margin: 22px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  max-width: 480px;
+  color: #1b2233;
+}
+.nm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e51e26;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0 22px;
+  height: 37px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.nm-btn:hover {
+  background: #c8161d;
+}
+.nm-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+.nm-dots button {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+  opacity: 0.8;
+  cursor: pointer;
+  padding: 0;
+}
+.nm-dots button.on {
+  background: #e51e26;
+  opacity: 1;
+}
+@media (max-width: 1100px) {
+  .nm-brand {
+    font-size: 48px;
+  }
+  .nm-title {
+    font-size: 24px;
+  }
+}
+@media (max-width: 640px) {
+  .nm-hero {
+    height: 380px;
+  }
+  .nm-brand {
+    font-size: 40px;
+  }
+  .nm-title {
+    font-size: 20px;
+  }
+  .nm-kick {
+    letter-spacing: 2px;
+  }
+  .nm-bg {
+    object-position: 68% center;
+  }
+  .nm-shade {
+    background: linear-gradient(
+      90deg,
+      rgba(248, 250, 252, 0.94) 0%,
+      rgba(248, 250, 252, 0.7) 55%,
+      rgba(248, 250, 252, 0.25) 100%
+    );
+  }
+}

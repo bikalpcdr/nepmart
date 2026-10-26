@@ -1,0 +1,75 @@
+<app-page-shell>
+  <section class="page-head">
+    <div class="eyebrow">contact us</div>
+    <h1>We'd love to <span>hear from you</span></h1>
+    <p class="lead">
+      Questions about an order, want to sell on Nepmart, or just want to say hello? Reach out
+      any way you like — we usually respond within one business day.
+    </p>
+  </section>
+
+  <div class="contact-grid">
+    <aside class="info">
+      <div class="info-card">
+        <div class="info-icon">📧</div>
+        <h3>Email</h3>
+        <a href="mailto:hello@nepmart.com">hello@nepmart.com</a>
+        <p>For general queries and support</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📞</div>
+        <h3>Phone</h3>
+        <a href="tel:+97714444444">+977-1-4444-444</a>
+        <p>Sun–Fri, 9:00 AM – 6:00 PM NPT</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+        <h3>Office</h3>
+        <p class="info-strong">Nepmart Store Pvt. Ltd.</p>
+        <p>Lazimpat, Kathmandu 44600, Nepal</p>
+      </div>
+    </aside>
+
+    <div class="form-card">
+      @if (sent) {
+        <div class="alert" role="status">
+          ✅ Thanks for reaching out! Your message has been recorded — our team will get back to you soon.
+        </div>
+      }
+      <h2>Send a Message</h2>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="row">
+          <label>
+            <span>Name</span>
+            <input type="text" formControlName="name" placeholder="Your name" />
+            @if (form.controls.name.touched && form.controls.name.invalid) {
+              <em>Name is required.</em>
+            }
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" formControlName="email" placeholder="you@example.com" />
+            @if (form.controls.email.touched && form.controls.email.invalid) {
+              <em>Enter a valid email.</em>
+            }
+          </label>
+        </div>
+        <label>
+          <span>Subject</span>
+          <input type="text" formControlName="subject" placeholder="What is this about?" />
+          @if (form.controls.subject.touched && form.controls.subject.invalid) {
+            <em>Subject is required.</em>
+          }
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea formControlName="message" rows="5" placeholder="Tell us more..."></textarea>
+          @if (form.controls.message.touched && form.controls.message.invalid) {
+            <em>Message must be at least 10 characters.</em>
+          }
+        </label>
+        <button class="submit" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</app-page-shell>

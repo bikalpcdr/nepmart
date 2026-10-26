@@ -1,0 +1,135 @@
+.page-head {
+  margin-bottom: 40px;
+  max-width: 720px;
+}
+.eyebrow {
+  color: #cc0b1d;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+h1 {
+  color: #cc0b1d;
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+h1 span {
+  background: linear-gradient(135deg, #cc0b1d 0%, #dd2e44 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.lead {
+  color: #625655;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+.lead a {
+  color: #cc0b1d;
+  font-weight: 700;
+  text-decoration: none;
+}
+.lead a:hover {
+  text-decoration: underline;
+}
+.faq-group {
+  max-width: 820px;
+  margin-bottom: 36px;
+}
+.faq-group h2 {
+  color: #2b2b2b;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0 0 14px;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid rgba(108, 106, 106, 0.12);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.faq-item.open {
+  box-shadow: 0 8px 24px rgba(108, 106, 106, 0.1);
+}
+.faq-item button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: none;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2b2b2b;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+.faq-item button:hover {
+  color: #cc0b1d;
+}
+.chevron {
+  color: #cc0b1d;
+  font-size: 20px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.faq-answer {
+  color: #625655;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0 20px 18px;
+}
+.still-stuck {
+  max-width: 820px;
+  background: #fff;
+  border: 1px solid rgba(108, 106, 106, 0.12);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+}
+.still-stuck h2 {
+  color: #cc0b1d;
+  font-size: 22px;
+  font-weight: 900;
+  margin: 0 0 6px;
+}
+.still-stuck p {
+  color: #8a8a8a;
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+.btn {
+  display: inline-block;
+  background: #cc0b1d;
+  color: #fff;
+  border-radius: 999px;
+  padding: 13px 30px;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover {
+  background: #b00918;
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  h1 {
+    font-size: 32px;
+  }
+  .lead {
+    font-size: 16px;
+  }
+}

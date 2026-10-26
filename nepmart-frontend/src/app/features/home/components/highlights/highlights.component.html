@@ -1,0 +1,22 @@
+<section class="wrap">
+  <div class="section-head">
+    <div>
+      <h2 class="section-title">Why <span>Shop With Us</span></h2>
+      <p class="section-sub">
+        A modern shopping experience built for Nepali shoppers, by people who know Nepal.
+      </p>
+    </div>
+    <a class="btn-outline" routerLink="/about">Learn More</a>
+  </div>
+  <div class="highlights">
+    @for (h of highlights; track h) {
+      <div class="highlight">
+        <span class="highlight-icon">{{ h.icon }}</span>
+        <div class="highlight-body">
+          <div class="highlight-title">{{ h.title }}</div>
+          <div class="highlight-desc">{{ h.description }}</div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

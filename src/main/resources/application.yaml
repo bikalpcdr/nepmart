@@ -1,3 +1,80 @@
 spring:
   application:
     name: nepmart
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nep_mart
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: NepMartHikariPool
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 30000
+      connection-timeout: 20000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: official.room.rental@gmail.com
+    password: zntf xzjm ahcq kcgf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 7777
+  servlet:
+    context-path: /api
+
+application:
+  security:
+    jwt:
+      secret-key: ${JWT_SECRET_KEY:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
+      access-token-expiration: 900000        # 15 minutes in ms
+      refresh-token-expiration: 604800000    # 7 days in ms
+
+esewa:
+  merchant-id: EPAYTEST
+  secret-key: 8gBm/:&EnhH.1/q
+  urls:
+    form: https://rc-epay.esewa.com.np/api/epay/main/v2/form
+    status: https://rc.esewa.com.np/api/epay/transaction/status/
+    success-callback: http://localhost:3000/payment-success
+    failure-callback: http://localhost:3000/payment-failure
+
+  id1: 9806800001
+  id2: 9806800002
+  id3: 9806800003
+  id4: 9806800004
+  id5: 9806800005
+  password: Nepal@123
+  mpin: 1122
+  token: 123456
+
+cloudinary:
+  cloud-name: dcsrqvurv
+  api-key: 856241443262171
+  api-secret: YI4c802XC6eu0yxnpL-nor30VEY
+app:
+  webpush:
+    vapid:
+      subject: ${WEBPUSH_VAPID_SUBJECT:mailto:admin@nepmart.com}
+      public-key: ${WEBPUSH_VAPID_PUBLIC_KEY:}
+      private-key: ${WEBPUSH_VAPID_PRIVATE_KEY:}

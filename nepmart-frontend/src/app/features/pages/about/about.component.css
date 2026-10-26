@@ -1,0 +1,128 @@
+.page-head {
+  margin-bottom: 48px;
+  max-width: 720px;
+}
+.eyebrow {
+  color: #cc0b1d;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+h1 {
+  color: #cc0b1d;
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+h1 span {
+  background: linear-gradient(135deg, #cc0b1d 0%, #dd2e44 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.lead {
+  color: #625655;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+.story {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 48px;
+}
+.story-block {
+  background: #fff;
+  border: 1px solid rgba(108, 106, 106, 0.12);
+  border-radius: 16px;
+  padding: 32px;
+}
+.story-block h2 {
+  color: #cc0b1d;
+  font-size: 22px;
+  font-weight: 900;
+  margin: 0 0 12px;
+}
+.story-block h2 + p {
+  margin-top: 0;
+}
+.story-block p {
+  color: #625655;
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+.story-block p:last-child {
+  margin-bottom: 0;
+}
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.value {
+  background: #fff;
+  border: 1px solid rgba(108, 106, 106, 0.12);
+  border-radius: 16px;
+  padding: 28px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.value:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(108, 106, 106, 0.12);
+}
+.value-icon {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.value h3 {
+  color: #cc0b1d;
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+.value p {
+  color: #625655;
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+  background: #fff;
+  border: 1px solid rgba(108, 106, 106, 0.12);
+  border-radius: 16px;
+  padding: 36px;
+  text-align: center;
+}
+.stat-num {
+  display: block;
+  color: #cc0b1d;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+.stat-label {
+  display: block;
+  color: #8a8a8a;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+@media (max-width: 640px) {
+  h1 {
+    font-size: 32px;
+  }
+  .lead {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,33 @@
+<app-page-shell>
+  <section class="page-head">
+    <div class="eyebrow">faq</div>
+    <h1>Frequently asked <span>questions</span></h1>
+    <p class="lead">
+      Quick answers about orders, delivery, returns, and accounts. Can't find what you need?
+      <a routerLink="/contact">Contact us</a> — we're happy to help.
+    </p>
+  </section>
+
+  @for (group of groups; track group.title) {
+    <section class="faq-group">
+      <h2>{{ group.icon }} {{ group.title }}</h2>
+      @for (item of group.items; track item.q) {
+        <div class="faq-item" [class.open]="open === group.title + item.q">
+          <button type="button" (click)="toggle(group.title + item.q)">
+            <span>{{ item.q }}</span>
+            <span class="chevron">{{ open === group.title + item.q ? '−' : '+' }}</span>
+          </button>
+          @if (open === group.title + item.q) {
+            <p class="faq-answer">{{ item.a }}</p>
+          }
+        </div>
+      }
+    </section>
+  }
+
+  <section class="still-stuck">
+    <h2>Still have questions?</h2>
+    <p>Our support team is one message away.</p>
+    <a class="btn" routerLink="/contact">Contact Support</a>
+  </section>
+</app-page-shell>

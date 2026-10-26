@@ -1,0 +1,60 @@
+<section class="nm-featured" aria-label="Featured products">
+  <div class="nm-sec">
+    <h2>Featured Products</h2>
+    <a routerLink="/shop"
+      >View All
+      <svg
+        width="12"
+        height="12"
+        viewBox="0 0 14 14"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+      >
+        <path d="M2 7h9M8 3.5 11.5 7 8 10.5" />
+      </svg>
+    </a>
+  </div>
+  <div class="nm-grid">
+    @for (p of products; track p.id) {
+      <article class="nm-card">
+        <a class="nm-img" [routerLink]="['/shop']" [attr.aria-label]="p.name">
+          <img [src]="p.image" [alt]="p.alt" loading="lazy" (error)="onImageError($event)" />
+          @if (p.discount) {
+            <span class="nm-badge">{{ p.discount }}</span>
+          }
+          <button
+            type="button"
+            class="nm-heart"
+            [class.saved]="wishlist.has(p.id)"
+            (click)="
+              $event.preventDefault(); $event.stopPropagation(); toggleWishlist(p.id, p.name)
+            "
+            [attr.aria-label]="'Toggle wishlist for ' + p.name"
+            [attr.aria-pressed]="wishlist.has(p.id)"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 20 20"
+              [attr.fill]="wishlist.has(p.id) ? '#E51E26' : 'none'"
+              stroke="#E51E26"
+              stroke-width="1.8"
+            >
+              <path
+                d="M10 16.5 3.6 10a4.1 4.1 0 0 1 0-5.8 4 4 0 0 1 5.7 0l.7.7.7-.7a4 4 0 0 1 5.7 0 4.1 4.1 0 0 1 0 5.8Z"
+              />
+            </svg>
+          </button>
+        </a>
+        <h4>{{ p.name }}</h4>
+        <div class="nm-price" [class.sale]="!!p.discount">
+          {{ p.price }}
+          @if (p.oldPrice) {
+            <s>{{ p.oldPrice }}</s>
+          }
+        </div>
+      </article>
+    }
+  </div>
+</section>

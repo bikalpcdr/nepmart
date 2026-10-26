@@ -1,0 +1,82 @@
+<app-page-shell>
+  <section class="page-head">
+    <div class="eyebrow">my account</div>
+    <h1>Welcome back, <span>{{ session.user()?.email ?? 'shopper' }}</span></h1>
+    <p class="lead">
+      Your profile, roles, vendor context, and permissions — loaded securely from your session.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Profile</h2>
+    <div class="fields">
+      <div class="field">
+        <span class="label">Email</span>
+        <span class="value">{{ session.user()?.email }}</span>
+      </div>
+      <div class="field">
+        <span class="label">Account Type</span>
+        <span class="value">{{ session.user()?.userType }}</span>
+      </div>
+      <div class="field">
+        <span class="label">Status</span>
+        <span class="badge" [class.active]="session.user()?.status === 'ACTIVE'">
+          {{ session.user()?.status }}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Roles</h2>
+    @if (session.roles().length) {
+      <div class="chips">
+        @for (role of session.roles(); track role.uuid) {
+          <span class="chip role">
+            {{ role.name }}
+            <small>{{ role.scope }}</small>
+          </span>
+        }
+      </div>
+    } @else {
+      <p class="empty">No roles assigned yet.</p>
+    }
+  </section>
+
+  <section class="card">
+    <h2>My Vendors</h2>
+    @if (session.vendors().length) {
+      <div class="chips">
+        @for (vendor of session.vendors(); track vendor.uuid) {
+          <span class="chip vendor">
+            {{ vendor.name }}
+            <small>{{ vendor.status }}</small>
+          </span>
+        }
+      </div>
+    } @else {
+      <p class="empty">You're not linked to any vendor store.</p>
+    }
+  </section>
+
+  <section class="card">
+    <h2>Permissions <small class="count">{{ session.permissionCodes().length }}</small></h2>
+    @if (session.permissionCodes().length) {
+      <div class="perm-grid">
+        @for (perm of session.permissionCodes(); track perm) {
+          <code class="perm">{{ perm }}</code>
+        }
+      </div>
+    } @else {
+      <p class="empty">No permissions assigned yet.</p>
+    }
+  </section>
+
+  @if (session.isAdmin) {
+    <section class="card admin-cta">
+      <h2>Administration</h2>
+      <p>You have admin privileges.</p>
+      <a class="btn" routerLink="/admin/users">Open Admin Panel</a>
+    </section>
+  }
+</app-page-shell>

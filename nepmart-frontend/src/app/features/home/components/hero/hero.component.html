@@ -1,0 +1,46 @@
+<section class="nm-hero" aria-label="Featured promotions">
+  @for (slide of slides; track slide.title; let i = $index) {
+    <div class="nm-slide" [class.active]="i === active()" aria-hidden="{{ i !== active() }}">
+      <img
+        class="nm-bg"
+        [src]="slide.image"
+        [alt]="slide.alt"
+        [loading]="i === 0 ? 'eager' : 'lazy'"
+      />
+      <div class="nm-shade"></div>
+      <div class="nm-inner">
+        <p class="nm-kick">{{ slide.eyebrow }}</p>
+        <h1 class="nm-brand">
+          {{ slide.brandA }}<span>{{ slide.brandB }}</span>
+        </h1>
+        <h2 class="nm-title">{{ slide.title }}</h2>
+        <p class="nm-desc">{{ slide.descA }}<br />{{ slide.descB }}</p>
+        <a class="nm-btn" [routerLink]="slide.link">
+          {{ slide.cta }}
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M2 7h9M8 3.5 11.5 7 8 10.5" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  }
+  <div class="nm-dots" role="tablist" aria-label="Hero slides">
+    @for (slide of slides; track slide.title; let i = $index) {
+      <button
+        type="button"
+        role="tab"
+        [attr.aria-selected]="i === active()"
+        [class.on]="i === active()"
+        (click)="go(i)"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+      ></button>
+    }
+  </div>
+</section>

@@ -1,0 +1,11 @@
+.wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+h1 {
+  color: #cc0b1d;
+}
+p {
+  color: #625655;
+}

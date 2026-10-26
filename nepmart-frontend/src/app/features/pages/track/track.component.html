@@ -1,0 +1,39 @@
+<app-page-shell>
+  <section class="page-head">
+    <div class="eyebrow">track order</div>
+    <h1>Where's <span>my order?</span></h1>
+    <p class="lead">
+      Enter your order ID and the email used at checkout to see live delivery status.
+    </p>
+  </section>
+
+  <div class="track-card">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        <span>Order ID</span>
+        <input type="text" formControlName="orderId" placeholder="e.g. NPM-2026-01234" />
+        @if (form.controls.orderId.touched && form.controls.orderId.invalid) {
+          <em>Order ID is required.</em>
+        }
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" formControlName="email" placeholder="you@example.com" />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <em>Enter a valid email.</em>
+        }
+      </label>
+      <button class="submit" type="submit">Track Order</button>
+    </form>
+
+    @if (searched) {
+      <div class="notice" role="status">
+        <strong>Order tracking is coming soon.</strong>
+        <p>
+          Live tracking ships with our Orders API. For now, our support team can give you an
+        update — <a routerLink="/contact">contact us</a> with your order ID.
+        </p>
+      </div>
+    }
+  </div>
+</app-page-shell>

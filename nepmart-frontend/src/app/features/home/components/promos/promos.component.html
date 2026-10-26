@@ -1,0 +1,27 @@
+<div class="nm-promos">
+  @for (p of promos; track p.title) {
+    <article class="nm-promo {{ p.theme }}">
+      <div class="nm-copy">
+        @if (p.eyebrow) {
+          <small>{{ p.eyebrow }}</small>
+        }
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.desc }}</p>
+        <a class="nm-pbtn" [routerLink]="p.link">
+          {{ p.cta }}
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M2 7h9M8 3.5 11.5 7 8 10.5" />
+          </svg>
+        </a>
+      </div>
+      <img class="nm-art" [src]="p.image" [alt]="p.alt" loading="lazy" />
+    </article>
+  }
+</div>

@@ -1,0 +1,21 @@
+<section class="wrap">
+  <div class="card">
+    <h1>Welcome back</h1>
+    <p class="sub">Sign in to your Nepmart account.</p>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        Email
+        <input type="email" formControlName="email" placeholder="you@example.com">
+      </label>
+      <label>
+        Password
+        <input type="password" formControlName="password" placeholder="••••••••">
+      </label>
+      @if (error) {
+        <p class="error">{{ error }}</p>
+      }
+      <button class="btn-solid" type="submit">Sign In</button>
+    </form>
+    <p class="swap">No account yet? <a routerLink="/signup">Join free</a></p>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+/* NepMart global design tokens — matches reference screenshot */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --nm-navy: #0b1b3a;
+  --nm-red: #e51e26;
+  --nm-red-dark: #c8161d;
+  --nm-bg: #f8fafc;
+  --nm-muted: #64748b;
+  --nm-border: #e8edf3;
+  --nm-green: #4f8f4b;
+  --nm-text: #1b2233;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--nm-text);
+  background: var(--nm-bg);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+button {
+  font-family: inherit;
+}

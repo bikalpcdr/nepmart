@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  background: var(--nm-bg);
+}
+.nm-body {
+  padding-bottom: 8px;
+}
+.nm-wrap {
+  max-width: 1390px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+app-home-categories {
+  display: block;
+  margin-top: 20px;
+}
+app-home-promos {
+  display: block;
+  margin-top: 30px;
+}
+app-products {
+  display: block;
+  margin-top: 38px;
+  padding-bottom: 32px;
+}

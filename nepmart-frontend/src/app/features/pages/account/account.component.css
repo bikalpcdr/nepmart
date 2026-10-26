@@ -1,0 +1,172 @@
+.page-head {
+  margin-bottom: 40px;
+  max-width: 720px;
+}
+.eyebrow {
+  color: #cc0b1d;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+h1 {
+  color: #cc0b1d;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin: 0 0 12px;
+  word-break: break-all;
+}
+h1 span {
+  background: linear-gradient(135deg, #cc0b1d 0%, #dd2e44 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.lead {
+  color: #625655;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+}
+.card {
+  background: #fff;
+  border: 1px solid rgba(108, 106, 106, 0.12);
+  border-radius: 16px;
+  padding: 26px 30px;
+  margin-bottom: 20px;
+  max-width: 860px;
+}
+.card h2 {
+  color: #2b2b2b;
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.count {
+  background: rgba(204, 11, 29, 0.08);
+  color: #cc0b1d;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 3px 10px;
+}
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.label {
+  color: #8a8a8a;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.value {
+  color: #2b2b2b;
+  font-size: 15px;
+  font-weight: 600;
+  word-break: break-all;
+}
+.badge {
+  align-self: flex-start;
+  background: rgba(204, 11, 29, 0.08);
+  color: #cc0b1d;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+}
+.badge.active {
+  background: rgba(80, 140, 60, 0.12);
+  color: #3d6e2c;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fafbfc;
+  border: 1px solid rgba(108, 106, 106, 0.15);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2b2b2b;
+}
+.chip small {
+  color: #8a8a8a;
+  font-size: 11px;
+  font-weight: 600;
+}
+.chip.role {
+  border-color: rgba(204, 11, 29, 0.3);
+  background: rgba(204, 11, 29, 0.05);
+  color: #cc0b1d;
+}
+.chip.vendor {
+  border-color: rgba(80, 140, 60, 0.35);
+  background: rgba(80, 140, 60, 0.06);
+  color: #3d6e2c;
+}
+.perm-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.perm {
+  background: #fafbfc;
+  border: 1px solid rgba(108, 106, 106, 0.15);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12.5px;
+  color: #625655;
+}
+.empty {
+  color: #8a8a8a;
+  font-size: 14px;
+  margin: 0;
+}
+.admin-cta p {
+  color: #625655;
+  font-size: 14px;
+  margin: 0 0 16px;
+}
+.btn {
+  display: inline-block;
+  background: #cc0b1d;
+  color: #fff;
+  border-radius: 999px;
+  padding: 11px 26px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover {
+  background: #b00918;
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  h1 {
+    font-size: 30px;
+  }
+  .card {
+    padding: 20px;
+  }
+}

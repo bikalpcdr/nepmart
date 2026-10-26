@@ -1,0 +1,29 @@
+<section class="wrap">
+  <div class="card">
+    <h1>Create account</h1>
+    <p class="sub">Join Nepmart free — fresh goods delivered to your door.</p>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        Full name
+        <input type="text" formControlName="fullName" placeholder="Your name">
+      </label>
+      <label>
+        Email
+        <input type="email" formControlName="email" placeholder="you@example.com">
+      </label>
+      <label>
+        Phone (optional)
+        <input type="tel" formControlName="phoneNumber" placeholder="+977-...">
+      </label>
+      <label>
+        Password (min 8 chars, upper + lower + digit + special)
+        <input type="password" formControlName="password" placeholder="••••••••">
+      </label>
+      @if (error) {
+        <p class="error">{{ error }}</p>
+      }
+      <button class="btn-solid" type="submit">Join Free</button>
+    </form>
+    <p class="swap">Already have an account? <a routerLink="/login">Sign in</a></p>
+  </div>
+</section>
