@@ -19,6 +19,12 @@ export class LoginComponent {
   private readonly toast = inject(ToastService);
 
   protected error: string | null = null;
+  protected hidePassword = true;
+
+  protected togglePasswordVisibility(): void {
+    this.hidePassword = !this.hidePassword;
+  }
+
   protected readonly form = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],

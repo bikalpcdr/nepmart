@@ -64,3 +64,49 @@ input:focus {
   color: #cc0b1d;
   font-weight: 700;
 }
+
+/* Password eye-toggle wrapper (shared by login + signup). */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-wrapper input {
+  flex: 1;
+  min-width: 0;
+  padding-right: 42px;
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #625655;
+  line-height: 1;
+}
+
+.eye-toggle:hover {
+  color: #cc0b1d;
+}
+
+.eye-toggle:focus-visible {
+  outline: 2px solid #cc0b1d;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
